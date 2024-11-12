@@ -1,7 +1,10 @@
 import cv2
+import matplotlib
 import matplotlib.pyplot as plt
+matplotlib.use("tkagg")
 
-# Read image as grayscale.
+
+# Read %matplotlib inlineimage as grayscale.
 bw_img = cv2.imread('img_bw_18x18.png', cv2.IMREAD_GRAYSCALE)
 
 # Print the image data (pixel values) of a 2D NumPy array.
