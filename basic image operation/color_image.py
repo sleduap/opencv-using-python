@@ -73,3 +73,54 @@ logo_img =cv2.cvrtColor(logo_img, cv2.BGRA2RGBA)
 
 plt.figure(figsize = [12, 12])
 plt.imshow(logo_img);
+
+#################################################
+#Split and Merging Color Channels
+#################################################
+img_bgr = cv2.imread('Emerald_Lakes_New_Zealand.jpg', cv2.IMREAD_COLOR)
+b, g, r = cv2.split(img_bgr)
+
+plt.figure(figsize = [20, 10])
+plt.subplot(141); plt.imshow(r); plt.title('Red Channel')
+plt.subplot(142); plt.imshow(g); plt.title('Green Channel')
+plt.subplot(143); plt.imshow(b); plt.title('Blue Channel')
+
+# Merge the individual channels into a BGR image.
+imgMerged = cv2.merge((r, g, b))
+
+# Display the merged output.
+plt.subplot(144)
+plt.imshow(imgMerged)
+plt.title('Merged Output');
+
+
+
+img_hsv = cv2.cvtColor(img_bgr, cv2.COLOR_BGR2HSV)
+
+# Split the image into the B,G,R components.
+h, s, v = cv2.split(img_hsv)
+
+# Display the channels.
+plt.figure(figsize = [20, 5])
+plt.subplot(141); plt.imshow(h); plt.title('H Channel')
+plt.subplot(142); plt.imshow(s); plt.title('S Channel')
+plt.subplot(143); plt.imshow(v); plt.title('V Channel')
+
+# Display the original image.
+plt.subplot(144); plt.imshow(img_bgr[:, :, ::-1]); plt.title('Original');
+
+
+
+
+h_new = h + 10
+img_hsv_merged = cv2.merge((h_new, s, v))
+img_rgb_merged = cv2.cvtColor(img_hsv_merged, cv2.COLOR_HSV2RGB)
+
+# Display the channels.
+plt.figure(figsize = [20,5])
+plt.subplot(141); plt.imshow(h_new); plt.title('H Channel')
+plt.subplot(142); plt.imshow(s); plt.title('S Channel')
+plt.subplot(143); plt.imshow(v); plt.title('V Channel')
+
+# Display the modified image.
+plt.subplot(144); plt.imshow(img_rgb_merged); plt.title('Modified');
