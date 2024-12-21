@@ -50,3 +50,21 @@ image_rectangle = cv2.rectangle(image_rectangle, (300, 150), (480, 420), magenta
 # Display the annotated image.
 plt.figure(figsize = [8, 8])
 plt.imshow(image_rectangle[:, :, ::-1]);
+
+
+
+# Make a copy of the original image.
+image_text = image.copy()
+
+# Add text to the image.
+text = 'Apollo 8 Saturn V Launch, 21 Dec 1968'
+font_face = cv2.FONT_HERSHEY_SIMPLEX
+font_scale = 0.8
+font_color = green
+font_thickness = 1
+
+image_text = cv2.putText(image_text, text, (45, 30), font_face, font_scale, font_color, font_thickness, cv2.LINE_AA)
+
+# Display the annotated image.
+plt.figure(figsize = [10, 10])
+plt.imshow(image_text[:, :, ::-1]);
