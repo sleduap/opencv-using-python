@@ -69,7 +69,7 @@ cv2.destroyAllWindows()
 sobelx  = cv2.Sobel(src = img_gray, ddepth = cv2.CV_64F, dx = 1, dy = 0, ksize = 3) 
 sobely  = cv2.Sobel(src = img_gray, ddepth = cv2.CV_64F, dx = 0, dy = 1, ksize = 3)
 
-# Display.
+# Display graph.
 cv2.imshow('Grayscale', img_gray)
 cv2.waitKey(0)
 cv2.imshow('Sobelx Edge Map', sobelx)
